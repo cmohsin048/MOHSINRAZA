@@ -1,0 +1,42 @@
+#LBA TASK 1
+
+a=input("enter a string : ")
+b=a[::-1]
+if(a==b):
+    print("\nstring is a palindrome\n")
+else:
+    print("\nstring is not palindrome \n")
+    
+ 
+ 
+ 
+    
+ #LAB TASK 2
+ 
+from collections import deque
+eq = input("Enter any equation: ")
+stack = deque()
+result = "\nEquation balanced"
+counter = 0
+for i in eq:
+    if (i == '(' or i == '[' or i == '{'):
+        stack.append(i)
+        counter = counter + 1
+    elif (i == ')' or i == ']' or i == '}'):
+        if (len(stack) != 0):
+            if (i == ')'):
+                if(stack[-1] == '('):
+                    counter = counter - 1
+            if (i == ']'):
+                if (stack[-1] == '['):
+                    counter = counter - 1
+            if (i == '}'):
+                if (stack[-1] == '{'):
+                    counter = counter - 1
+            stack.pop()
+        else:
+            result = "\nEquation unbalanced!"
+            break
+if (counter != 0):
+    result = "\nEquation unbalanced"
+print (result)
